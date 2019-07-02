@@ -915,6 +915,10 @@ Resources:
                 K8sMasterPrivateIp: !GetAtt K8sMasterInstance.PrivateIp
                 ClusterToken: !GetAtt KubeadmToken.Token
                 ClusterInfoBucket: !Ref ClusterInfoBucket
+            # Config environment
+            "/tmp/config-environment.sh":
+              source: !Sub "https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}scripts/config-environment.sh"
+              mode: '000755'
 
           commands:
             "00-kubernetes-override-binaries":
@@ -927,6 +931,8 @@ Resources:
               command: "/tmp/setup-kubelet-hostname.sh"
             "04-k8s-setup-node":
               command: "/tmp/setup-k8s-node.sh"
+            "05-config-environment":
+              command: "/tmp/config-environment.sh"
     Properties:
       # Refers to the NodeInstanceProfile resource, which applies the IAM role for the nodes
       # The IAM role allows us to create further AWS resources (like an EBS drive) from the cluster
