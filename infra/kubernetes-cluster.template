@@ -675,6 +675,7 @@ Resources:
       InstanceType: !Ref MasterInstanceType
       # Adds our SSH key to the instance
       KeyName: !Ref KeyName
+      PrivateIpAddress: 10.0.0.1
       NetworkInterfaces:
       - DeleteOnTermination: true
         DeviceIndex: 0
