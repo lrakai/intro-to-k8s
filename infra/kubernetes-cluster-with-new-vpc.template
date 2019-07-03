@@ -846,7 +846,7 @@ Resources:
             sed -i 's/\(PasswordAuthentication \).*/\1yes/g' /etc/ssh/sshd_config
             systemctl restart sshd
             echo 'ubuntu:-veryV3RY53CuRePazWurd!_' | chpasswd
-            
+
             mkdir -p /home/ubuntu/.kube
             chown -R ubuntu:ubuntu /home/ubuntu/
 
@@ -863,6 +863,7 @@ Resources:
             ./$BASTION_BOOTSTRAP_FILE --banner https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}scripts/banner_message.txt --enable false
 
             snap install --channel 1.13/stable --classic kubectl
+            apt-get install ec2-instance-connect
 
   # Open up port 22 for SSH for the bastion host
   BastionSecurityGroup:
