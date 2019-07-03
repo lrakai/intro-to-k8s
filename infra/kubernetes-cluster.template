@@ -675,10 +675,10 @@ Resources:
       InstanceType: !Ref MasterInstanceType
       # Adds our SSH key to the instance
       KeyName: !Ref KeyName
-      PrivateIpAddress: 10.0.0.1
       NetworkInterfaces:
       - DeleteOnTermination: true
         DeviceIndex: 0
+        PrivateIpAddress: 10.0.0.100
         SubnetId: !Ref ClusterSubnetId
         # Joins the ClusterSecGroup Security Group for cluster communication and SSH access
         # The ClusterSecGroupCrossTalk rules allow all instances in the same stack to communicate internally
