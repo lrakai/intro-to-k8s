@@ -108,7 +108,7 @@ Parameters:
   KeyName:
     Description: Existing EC2 KeyPair for SSH access.
     Type: AWS::EC2::KeyPair::KeyName
-    Default: '{KeyName}'
+    Default: "{KeyName}"
     ConstraintDescription: must be the name of an existing EC2 KeyPair.
 
   InstanceType:
