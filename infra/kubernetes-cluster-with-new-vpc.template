@@ -862,7 +862,7 @@ Resources:
 
             ./$BASTION_BOOTSTRAP_FILE --banner https://${QSS3BucketName}.s3.amazonaws.com/${QSS3KeyPrefix}scripts/banner_message.txt --enable false
 
-            snap install --channel 1.13/stable --classic kubectl
+            snap install --channel 1.15/stable --classic kubectl
             apt-get install ec2-instance-connect
 
   # Open up port 22 for SSH for the bastion host
