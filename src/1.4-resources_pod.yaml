@@ -10,8 +10,8 @@ spec:
     image: nginx:latest
     resources:
       requests:
-        memory: "128Mi"
-        cpu: "500m"
+        memory: "128Mi" # 128Mi = 128 mebibytes
+        cpu: "500m"     # 500m = 500 milliCPUs (1/2 CPU)
       limits:
         memory: "128Mi"
         cpu: "500m"
