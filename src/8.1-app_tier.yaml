@@ -66,4 +66,3 @@ spec:
             - npm
             - run-script
             - await-redis
-
