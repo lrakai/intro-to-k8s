@@ -842,6 +842,12 @@ Resources:
           Fn::Sub: |
             #!/bin/bash
 
+            # Pre-load source files
+            apt-get install git
+            git clone https://github.com/cloudacademy/intro-to-k8s.git
+            cp -r intro-to-k8s/src /home/ubuntu/
+            chown -R ubuntu:ubuntu /home/ubuntu/src
+
             # Allow master to inject kubeconfig
             sed -i 's/\(PasswordAuthentication \).*/\1yes/g' /etc/ssh/sshd_config
             systemctl restart sshd
