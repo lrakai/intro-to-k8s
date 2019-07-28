@@ -1024,6 +1024,19 @@ Resources:
       ToPort: '22'
       CidrIp: !Ref SSHLocation
 
+  # - Open up NodePorts to each machine
+  # The allowed locations are chosen by the user in the SSHLocation parameter
+  ClusterSecGroupAllowNodePort:
+    Metadata:
+      Comment: Open up port NodePort to each machine
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties:
+      GroupId: !Ref ClusterSecGroup
+      IpProtocol: tcp
+      FromPort: '30000'
+      ToPort: '32767'
+      CidrIp: !Ref SSHLocation
+
   # Allow the apiserver load balancer to talk to the cluster on port 6443
   ClusterSecGroupAllow6443FromLB:
     Metadata:
