@@ -143,9 +143,10 @@ Parameters:
   InstanceType:
     Description: EC2 instance type for the cluster.
     Type: String
-    Default: t3.micro
+    Default: t3.small
     AllowedValues:
     - t3.micro
+    - t3.small
     - c4.2xlarge
     - c4.4xlarge
     - c4.8xlarge
